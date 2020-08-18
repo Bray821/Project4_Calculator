@@ -39,7 +39,7 @@ let currentInput = '';
 let currentResult = '';
 let operatorSwitch = 1;   // used to disable multiple operators in a row
 let operatorType;
-let dotSwitch = 0;
+let dotSwitch = 0;    // only one dot per input
 let equalSwitch = 0;
 
 // variables for multiply/divide
@@ -100,15 +100,15 @@ const equal = () => {
   if (operatorSwitch == 0 && equalSwitch == 0) {
     computations.textContent += `${currentInput}`;
     if (operatorType === undefined) currentResult = currentInput;
-      if (reduceSwitch == 0 && operatorType !== undefined) {
-        currentResult = operations[operatorType]['fn'](+currentInput, +currentResult)
-        result.textContent = currentResult;
-      }
-      else if (reduceSwitch == 1) {
-        multiplyDivide(reduceArray, operatorsArray)
-      }
-      currentInput = '';
-      equalSwitch = 1;
+    if (reduceSwitch == 0 && operatorType !== undefined) {        // finish current computation
+      currentResult = operations[operatorType]['fn'](+currentInput, +currentResult)
+      result.textContent = currentResult;
+    }
+    else if (reduceSwitch == 1) {
+      multiplyDivide(reduceArray, operatorsArray)
+    }
+    currentInput = '';
+    equalSwitch = 1;
   }
 }
 
@@ -125,16 +125,17 @@ const ifSwitch = () => {
 // numbers listeners
 
 let numbers = (a) => {
-  if (equalSwitch == 1) {
+  if (equalSwitch == 1) {   // resets if a number is input after an equal operation
     currentResult = '';
     currentInput == '';
     computations.textContent = '';
+    dotSwitch = 0;
     equalSwitch = 0;
   }
   if (document.querySelector('.onUse')) {
     document.querySelector('.onUse').classList.remove('onUse')
   }
-  if (currentInput.length < 15) {
+  if (currentInput.length < 15) {  
     buttonNumbers[a].classList.add('playing');
     operatorSwitch = 0;
     currentInput += `${a}`;
