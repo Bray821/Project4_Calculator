@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(154, 168, 184);
+}
+
+#calculator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  margin-top: 100px;
+}
+
+#display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+  grid-template-rows: 1fr 2fr;
+  width: inherit;
+  height: 100px;
+  background-color: #a1a1c0;
+}
+
+#display p {
+  opacity: 0.8;
+  margin: 35px 0 0 0;
+  padding: 0 10px 5px 0;
+  width: 100%;
+  height: 30px;
+  border-bottom: 1px solid black;
+  text-align: right;
+  font: 16px Arial;
+}
+
+#display h3 {
+  padding-right: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  height: 70px;
+  text-align: right;
+  font: 400 32px Arial;
+  margin: 20px 0;
+}
+
+#calc-body {
+  display: grid;
+  grid-template: repeat(6, 1fr) / repeat(4, 1fr);
+  grid-template-areas: 
+  'clear  clear       clear backspace'
+  'factorial    mod   plusminus       divide'
+  'seven  eight       nine      multiply'
+  'four   five        six       add'
+  'one    two         three     subtract'
+  'zero   zero        dot       equal';
+  width: inherit;
+  height: 500px;
+  gap: 1px;
+}
+
+.calc-buttons {
+  background-color: #57a1a7;
+  font-size: 30px;
+  border: transparent;
+  outline: none;
+  text-shadow: 1px 1px 0 rgb(172, 171, 171);
+}
+
+.button-clear {
+  grid-column: span 2;
+}
+
+.button-0 {
+  grid-column: span 2;
+}
+
+  .button-0 {
+    grid-area: zero;
+  }
+  .button-1 {
+    grid-area: one;
+  }
+  .button-2 {
+    grid-area: two;
+  }
+  .button-3 {
+    grid-area: three;
+  }
+  .button-4 {
+    grid-area: four;
+  }
+  .button-5 {
+    grid-area: five;
+  }
+  .button-6 {
+    grid-area: six;
+  }
+  .button-7 {
+    grid-area: seven;
+  }
+  .button-8 {
+    grid-area: eight;
+  }
+  .button-9 {
+    grid-area: nine;
+  }
+  .button-dot {
+    grid-area: dot;
+  }
+  .button-clear {
+    grid-area: clear;
+  }
+  .button-backspace {
+    grid-area: backspace;
+  }
+  .button-divide {
+    grid-area: divide;
+  }
+  .button-multiply {
+    grid-area: multiply;
+  }
+  .button-add {
+    grid-area: add;
+  }
+  .button-subtract {
+    grid-area: subtract;
+  }
+  .button-equal {
+    grid-area: equal;
+    background-color: rgb(199, 108, 48);
+  }
+  .button-plusminus {
+    grid-area: plusminus;
+  }
+  .button-mod {
+    grid-area: mod;
+  }
+  .button-factorial {
+    grid-area: factorial;
+  }
+  
+.onUse {
+  background-color: rgb(211, 171, 119);
+}
+
+.button-transition:active {
+  box-shadow: inset -1px 1px 3px black;
+}
+.playing {
+  transition: all 0.05s step-start;
+  background-color: rgb(255, 255, 255);
+}
