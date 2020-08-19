@@ -129,7 +129,6 @@ let numbers = (a) => {
     currentResult = '';
     currentInput == '';
     computations.textContent = '';
-    dotSwitch = 0;
     equalSwitch = 0;
   }
   if (document.querySelector('.onUse')) {
