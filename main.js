@@ -107,6 +107,7 @@ const equal = () => {
     else if (reduceSwitch == 1) {
       multiplyDivide(reduceArray, operatorsArray)
     }
+    operatorType = undefined;
     currentInput = '';
     equalSwitch = 1;
   }
